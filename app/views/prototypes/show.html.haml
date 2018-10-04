@@ -8,8 +8,10 @@
         .media-body
           %h4#top-aligned-media.media-heading
             = @prototype.title
-            %a.btn.btn-xs.navbar-inverse.btn-edit{:href => "/prototypes/#{@prototype.id}/edit"} edit
-            %a.btn.btn-xs.navbar-inverse.btn-edit{:href => "/prototypes/#{@prototype.id}"} delete
+            = link_to  edit_prototype_path(@prototype.id), class: "btn btn-xs navbar-inverse btn-edit" do
+              edit
+            = link_to  prototype_path(@prototype.id), class: "btn btn-xs navbar-inverse btn-edit", method: :delete do
+              delete
           .proto-user
             by
             = link_to "#{@prototype.user.name}", user_path(@prototype.user)
